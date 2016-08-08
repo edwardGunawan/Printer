@@ -14,7 +14,14 @@ module.exports = {
       LSList: 'app/components/LSList.jsx',
       LS: 'app/components/LS.jsx',
       LSButtonsRow: 'app/components/LSButtonsRow.jsx',
-      Main: 'app/components/Main.jsx'
+      Main: 'app/components/Main.jsx',
+      TopTabsFrame: 'app/components/TopTabsFrame.jsx',
+      MainPrintFrame:'app/components/MainPrintFrame.jsx',
+      Nav: 'app/components/Nav.jsx',
+      Control: 'app/components/Control.jsx',
+      MainTopTabs: 'app/components/MainTopTabs.jsx',
+      PendingJobs:'app/components/PendingJobs.jsx',
+      PrintHistory: 'app/components/PrintHistory.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

@@ -10,7 +10,7 @@ var LSList = React.createClass({
   render: function() {
     var lights = this.state.lights.map(function(light){
       return (
-        <li>
+        <li key={light}>
           <label><input type="checkbox"/> {light} </label> <Scroll max={100}/>
         </li>
       );

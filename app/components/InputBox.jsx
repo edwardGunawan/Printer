@@ -33,7 +33,7 @@ var InputBox = React.createClass({
 	render: function(){
 		return (
 				<form className="pathInput" onChange={this.handlePathChange}>
-					<input type="text" ref="path" value={this.state.path}/>
+					<input type="text" ref="path" defaultValue={this.state.path}/>
 					<input type="file" ref="fileButton"/>
 					<button onClick={this.handlePathSubmit}>{this.state.button}</button>
 				</form>

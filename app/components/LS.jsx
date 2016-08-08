@@ -11,17 +11,13 @@ var LS = React.createClass({
   /* after the user clicked on the on or off button */
   handleOnPress: function(boolVal){
     /* this setState doesn't cost any serState */
-    this.setState({isCLick: boolVal});
-    // console.log(boolVal);
-    // console.log("this is the current state", this.state.isClick);
-    // debugger;
-    if(this.state.isClick){
+    this.setState({isClick: boolVal});
+    if(isClick){
       console.log('It has click the on button!');
     } else{
       console.log('it has click the off button!');
     }
   },
-
   render: function() {
     return (
       <div>
