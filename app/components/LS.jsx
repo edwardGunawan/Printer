@@ -21,7 +21,6 @@ var LS = React.createClass({
   render: function() {
     return (
       <div>
-        <h2> LS Card </h2>
         <LSList/>
         <LSButtonsRow onPress = {this.handleOnPress}/>
       </div>

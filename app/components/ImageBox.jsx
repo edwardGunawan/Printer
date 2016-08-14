@@ -37,7 +37,7 @@ var ImageBox = React.createClass({
 						<img src={this.state.img} alt="My Image" />
 					</div>
 					<div className="maskRange">
-						<Scroll onChangeValue = {this.handleChangeValue} max={max}/>
+						<Scroll onChangeValue = {this.handleChangeValue} max={max} singleRange = {true}/>
 					</div>
 				</div>
 			);

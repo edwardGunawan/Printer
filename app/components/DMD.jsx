@@ -2,7 +2,6 @@
 var React = require('react');
 var InputBox = require('InputBox');
 var ImageBox = require('ImageBox');
-var $ = require('jquery');
 
 var DMD = React.createClass({
 	getDefaultProps: function(){
@@ -13,17 +12,21 @@ var DMD = React.createClass({
 	getInitialState: function(){
 		/* set the initial state directory */
 		return {
-			dir:"./app/components/imageSample"
+			dir:"./imageSample"
 		};
 	},
 	handleNewImageDir: function (dir) {
 		this.setState({dir:dir});
 		// debugger;
 	},
+	shouldComponentUpdate: function(nextProps, nextState){
+		return nextState.dir !== this.state.dir;
+
+	},
 	render: function(){
 		return (
 			<div className="dmdBody">
-				<h1>{this.props.title}</h1>
+				<h1> TITLE </h1>
 				<InputBox onNewImageDir={this.handleNewImageDir}/>
 				<ImageBox dir= {this.state.dir}/>
 			</div>

@@ -15,13 +15,16 @@ module.exports = {
       LS: 'app/components/LS.jsx',
       LSButtonsRow: 'app/components/LSButtonsRow.jsx',
       Main: 'app/components/Main.jsx',
-      TopTabsFrame: 'app/components/TopTabsFrame.jsx',
-      MainPrintFrame:'app/components/MainPrintFrame.jsx',
-      Nav: 'app/components/Nav.jsx',
+      MainPrintFrame:'app/components/TopMain_MainPrintFrame.jsx',
       Control: 'app/components/Control.jsx',
-      MainTopTabs: 'app/components/MainTopTabs.jsx',
+      MainTopTabs: 'app/components/TopMain_MainTopTabs.jsx',
       PendingJobs:'app/components/PendingJobs.jsx',
-      PrintHistory: 'app/components/PrintHistory.jsx'
+      PrintHistory: 'app/components/PrintHistory.jsx',
+      TopTabs: 'app/components/TopTabs.jsx',
+      TopDrawer: 'app/components/TopDrawer.jsx',
+      TopHeader: 'app/components/TopHeader.jsx',
+      TopMain: 'app/components/TopMain.jsx',
+      Card: 'app/components/Cards/Card.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

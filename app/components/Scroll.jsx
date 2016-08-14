@@ -1,10 +1,15 @@
 var React = require('react');
+var InputRange = require('react-input-range')
 
 /* Scroll component */
 var Scroll = React.createClass({
   getInitialState: function(){
     return{
-      value: 0
+      value: 0,
+      values:{
+        min:0,
+        max:3
+      }
     };
   },
 
@@ -20,13 +25,43 @@ var Scroll = React.createClass({
     }
 		// debugger;
 	},
+  handleValuesChange: function(component, values){
+    this.setState({
+      values: values
+    });
+  },
+  inputRange: function(){
+    if(this.props.singleRange){
+      return(
+        <div>
+          <input type="range"
+            value={this.state.value}
+            ref="slider" min={0} max={this.props.max}
+            onChange = {this.handleSliderChange}
+            />
+          <label ref="mask">{this.state.value}</label>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <InputRange
+              maxValue={this.props.max}
+              minValue={0}
+              value={this.state.values}
+              onChange={this.handleValuesChange.bind(this)}
+            />
+          <label ref="mask">{(this.state.values.max)-(this.state.values.min)}</label>
+        </div>
+      );
+    }
+  },
 
   render: function() {
     return(
-      <div>
-        <input type="range" value={this.state.value} ref="slider" min="1" max={this.props.max} onChange = {this.handleSliderChange}/>
-        <label ref="mask">{this.state.value}</label>
-      </div>
+      <form>
+        {this.inputRange()}
+      </form>
     );
   }
 });
