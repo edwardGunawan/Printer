@@ -16,10 +16,7 @@ var TopMain = React.createClass({
         <div className="page-content">
           <div className="mdl-grid">
             <div className="mdl-cell mdl-cell--4-col"><MainPrintFrame/></div>
-            <div className="mdl-cell mdl-cell--8-col">
-              <DMD/>
-              {/*}<MainTopTabs/>*/}
-            </div>
+            <div className="mdl-cell mdl-cell--8-col"><MainTopTabs/></div>
           </div>
         </div>
       </main>

@@ -32,8 +32,11 @@ var Nav = React.createClass({
     }.bind(this));
     return (
 
-      <div>
-        <DMD/>
+      <div className="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+        <div className="mdl-tabs__tab-bar">
+          {tabNames}
+        </div>
+          {tabContents}
       </div>
     );
   }

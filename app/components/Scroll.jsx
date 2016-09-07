@@ -1,67 +1,59 @@
 var React = require('react');
-var InputRange = require('react-input-range')
+var ReactDOM = require('react-dom');
+var InputRange = require('react-input-range');
 
 /* Scroll component */
 var Scroll = React.createClass({
+  propTypes: {
+    max: React.PropTypes.number.isRequired,
+    onChangeValue: React.PropTypes.func.isRequired,
+    id: React.PropTypes.string,
+    position: React.PropTypes.string
+  },
+
   getInitialState: function(){
-    return{
-      value: 0,
-      values:{
-        min:0,
-        max:3
-      }
+    return {
+      value: 0
     };
   },
 
-  handleSliderChange: function(e){
+
+  componentDidMount: function(){
+    componentHandler.upgradeDom();
+    var position = ReactDOM.findDOMNode(this.refs.slider);
+    console.log(position);
+    if(this.props.position === "vertical"){
+      position.style.webkitAppearance = "slider-vertical"
+    }
+  },
+
+  _handleSliderChange: function(e){
 		e.preventDefault();
 		this.setState({
 			value: e.target.value,
 		});
-    /* if the value is not null then passed back to onChangeValue in ImageBox.jsx
-    */
     if(this.state.value){
-      this.props.onChangeValue(this.state.value); // pass back the value
+      this.props.onChangeValue({
+        value: this.state.value,
+        id: this.props.id
+      }); // pass back the value
     }
-		// debugger;
 	},
-  handleValuesChange: function(component, values){
-    this.setState({
-      values: values
-    });
-  },
-  inputRange: function(){
-    if(this.props.singleRange){
-      return(
-        <div>
-          <input type="range"
-            value={this.state.value}
-            ref="slider" min={0} max={this.props.max}
-            onChange = {this.handleSliderChange}
-            />
-          <label ref="mask">{this.state.value}</label>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <InputRange
-              maxValue={this.props.max}
-              minValue={0}
-              value={this.state.values}
-              onChange={this.handleValuesChange.bind(this)}
-            />
-          <label ref="mask">{(this.state.values.max)-(this.state.values.min)}</label>
-        </div>
-      );
-    }
-  },
 
   render: function() {
     return(
-      <form>
-        {this.inputRange()}
-      </form>
+        <div className="mdl-grid">
+          <div className="mdl-cell mdl-cell--10-col">
+            <input type="range"
+              className="slider-input mdl-slider mdl-js-slider"
+              ref="slider" min={0} max={this.props.max}
+              onChange = {this._handleSliderChange}
+              />
+          </div>
+          <div className="mdl-cell mdl-cell--2-col">
+              <label>{this.state.value}</label>
+          </div>
+        </div>
     );
   }
 });

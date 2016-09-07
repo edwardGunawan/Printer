@@ -2,6 +2,8 @@ var React = require('react');
 var Card = require('Card');
 var DMD = require('DMD');
 var LS = require('LS');
+var MC = require('MC');
+var ImageCard = require('ImageCard');
 var PropTypes = React.PropTypes;
 
 
@@ -22,13 +24,12 @@ var Control = React.createClass({
         <h2> Control Component </h2>
         <div className="mdl-grid">
           <div className=" mdl-cell mdl-cell--6-col mdl-card mdl-shadow--6dp">
-            <DMD/>
-            {/*}<Card
+            <Card
               title="MC Card"
               content={
-                <DMD/>
+                <MC/>
               }
-              />*/}
+              />
           </div>
           <div className=" mdl-cell--6-col mdl-cell mdl-card mdl-shadow--6dp">
             <Card
@@ -61,6 +62,7 @@ var Control = React.createClass({
           <div className="mdl-cell--12-col mdl-cell mdl-card mdl-shadow--6dp">
             <Card
               title="Camera Card"
+              content={<ImageCard />}
               />
           </div>
         </div>

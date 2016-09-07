@@ -2,7 +2,16 @@ var ReactDOM = require('react-dom');
 var React = require('react');
 var Main = require('Main');
 var DMD = require('DMD');
+var MCContent = require('./components/MC/MCContent');
 var {hashHistory, IndexRoute, Router, Route} = require('react-router');
+// var Row = require('Row');
+var MCSize = require('MCSize');
+var MC = require('MC');
+var Image = require('Image');
+var LS = require('LS');
+var ImageCard = require('ImageCard');
+require('style-loader!css-loader!react-input-range/dist/react-input-range.min.css');
+require('style-loader!css-loader!applicationStyles');
 
 /* There is 1 Router that takes the history of hashHistory, and Route that takes the
   path and the component
@@ -17,7 +26,7 @@ var {hashHistory, IndexRoute, Router, Route} = require('react-router');
   If you put a path in the route, the root path will have nothing to render, so
   it will be nothing, and if only if you route it to /MainTopTabs it will route it*/
 ReactDOM.render(
-  <Main/>,
+    <ImageCard/>,
     document.getElementById('content')
 
 );

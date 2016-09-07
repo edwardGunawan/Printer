@@ -1,19 +1,43 @@
+var webpack = require('webpack');
 module.exports = {
-  entry: './app/app.jsx',
+  entry: [
+    'script!jquery/dist/jquery.min.js',
+    './app/app.jsx'
+  ],
+  externals: {
+    jquery: 'jQuery'
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      '$': 'jquery',
+      'jQuery': 'jquery'
+    })
+  ],
   output: {
     path: __dirname,
     filename: './public/bundle.js'
   },
   resolve: {
     root: __dirname,
+    modulesDirectories: [
+      'node_modules',
+      './app/components/LSCard',
+      './app/components/Cards',
+      './app/components/DMDCard',
+      './app/components/ImageCard',
+      './app/components/MC',
+      './app/components'
+    ],
     alias: {
-      DMD: 'app/components/DMD.jsx',
-      ImageBox: 'app/components/ImageBox.jsx',
-      InputBox: 'app/components/InputBox.jsx',
+      applicationStyles:'app/Style/app.css',
+      DMD: 'app/components/DMDCard/DMD.jsx',
+      ImageBox: 'app/components/DMDCard/ImageBox.jsx',
+      InputBox: 'app/components/DMDCard/InputBox.jsx',
+      ImageRender: 'app/components/DMDCard/ImageRender.jsx',
       Scroll: 'app/components/Scroll.jsx',
-      LSList: 'app/components/LSList.jsx',
-      LS: 'app/components/LS.jsx',
-      LSButtonsRow: 'app/components/LSButtonsRow.jsx',
+      LSList: 'app/components/LSCard/LSList.jsx',
+      LS: 'app/components/LSCard/LS.jsx',
+      LSButtonsRow: 'app/components/LSCard/LSButtonsRow.jsx',
       Main: 'app/components/Main.jsx',
       MainPrintFrame:'app/components/TopMain_MainPrintFrame.jsx',
       Control: 'app/components/Control.jsx',
@@ -24,22 +48,29 @@ module.exports = {
       TopDrawer: 'app/components/TopDrawer.jsx',
       TopHeader: 'app/components/TopHeader.jsx',
       TopMain: 'app/components/TopMain.jsx',
-      Card: 'app/components/Cards/Card.jsx'
+      Card: 'app/components/Cards/Card.jsx',
+      RadioButton: 'app/components/MC/RadioButton.jsx',
+      MCContent:'app/components/MC/MCContent.jsx',
+      MCSize: 'app/components/MC/MCSize.jsx',
+      MC: 'app/components/MC/MC.jsx',
+      MCButton: 'app/components/MC/MCButton.jsx',
+      imageSelector: 'public/jqueryPlugins/scripts/jquery.imgareaselect.js'
     },
     extensions: ['', '.js', '.jsx']
   },
-  node: {
-    fs: "empty"
-  },
+  // node: {
+  //   fs: "empty"
+  // },
   module: {
-    loaders: [
+    loaders:[
+      // {test: /\.css$/,loader: "style-loader!css-loader" }, // import css and style-loader
       {
         loader: 'babel-loader',
         query: {
           presets: ['react', 'es2015']
         },
         test: /\.jsx?$/,
-        exclude: /(bower_components)/
+        exclude: /(node_modules|bower_components)/
       }
     ]
   },

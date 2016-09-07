@@ -10,12 +10,6 @@ var Card = React.createClass({
       title: 'Card Component'
     };
   },
-  // componentDidUpdate: function() {
-  //   componentHandler.upgradeDom();
-  // },
-  // componentDidMount: function() {
-  //   componentHandler.upgradeDom();
-  // },
   renderContent: function(){
     if(typeof this.props.content !== 'undefined'){
       return (
